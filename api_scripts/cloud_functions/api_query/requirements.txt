@@ -1,0 +1,5 @@
+# python packages dependencies 
+pandas==1.3.5
+google-cloud-storage==1.30.0
+requests==2.20.0
+

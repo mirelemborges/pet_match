@@ -1,0 +1,23 @@
+/* FONT */
+/* Get a font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: "Open Sans", 'Quantico','Changa','Noto Sans',sans-serif;
+    color: #232a30;
+}
+
+body {
+  font-family: "Open Sans";
+}
+
+.shiny-material-side-nav-tab-content{
+  margin-left: 25px !important;
+  margin-right: 25px !important;
+}
+
+.simbol {
+  color: #ffe521 !important;
+  text-align: center !important;
+  font-weight: bold;
+}

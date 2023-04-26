@@ -1,0 +1,13 @@
+name: petmatch
+title: petmatch
+username:
+account: mirele-borges
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8957899
+bundleId: 7138314
+url: https://mirele-borges.shinyapps.io/petmatch/
+when: 1682514489.29103
+lastSyncTime: 1682514489.29109
+asMultiple: FALSE
+asStatic: FALSE
