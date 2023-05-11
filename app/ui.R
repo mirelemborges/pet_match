@@ -15,8 +15,13 @@ require(dbplyr)
 require(vctrs)
 require(rlang)
 require(shinydashboard)
+require(shinydashboardPlus)
 require(lsa)
 require(DT)
+require(reactable)
+require(plotly)
+require(shinyWidgets)
+
 
 #- Loading UIs
 source("tabs/1_about/about_ui.R")
@@ -40,56 +45,66 @@ con <<- dbConnect(
 
 
 # MAIN UI START
-ui <- shinymaterial::material_page(
-  
-
-  background_color = "#ffffff",
-  primary_theme_color = "#000000",
-  secondary_theme_color = "#da6c41",
-  
-  # PAGE NAME
-  titlePanel(title = "", windowTitle = "Pet Match" ),
-  
-  title = "
-    <span><b>
-      <span style = 'color: #ffffff'> Pet Match </span>
-    </b></span>",
+ui <- shinydashboardPlus::dashboardPage(
+  title = "Pet Match",
+  skin = "yellow",
   
   
-  # SIDE BAR
-  material_side_nav(
-    fixed = TRUE,
-    h5(icon = icon("paw"), class = "simbol"),
-    
-    material_side_nav_tabs(
-      side_nav_tabs = c(
-        "About" = "about",
-        "Find your pet" = "find",
-        "Analysis" = "eda"
-      ),
-      icons = c("home", "comment", "comment")
-      
+  #  dash title
+  dashboardHeader(title = span(tagList(icon("paw"), "Pet Match"))),
+  
+  # left menu
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Acerca de Pet Match", tabName = "about", icon = icon("home")),
+      menuItem("Encuentra tu mascota", tabName = "find", icon = icon("paw")),
+      menuItem("Análisis", tabName = "eda", icon = icon("chart-line"))
     )
   ),
   
   
-  # BODY
-  tags$head(
-    # PAGE LOGO
-    HTML('<link rel="icon", href="img/logo_page.png", type="image/png" />'),
+  # dash body
+  dashboardBody(
     
-    # THEME 
-    tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
-  ),
-  
-  
-  # TABS
-  about,
-  find,
-  eda
-  
-  
-  # FOOTER
-
-
+    tags$head(
+      # css style
+      tags$link(
+        rel = "stylesheet",
+        type = "text/css",
+        href = "styles.css"
+      ),
+      
+      # page icon
+      tags$link(
+        rel = "shortcut icon",
+        href = "img/logo_page.png"
+      ),
+      
+      # page font
+      tags$link(
+        rel = "stylesheet",
+        type = "text/css",
+        href = "http://fonts.googleapis.com/css?family=Open+Sans%7CSource+Sans+Pro"
+      )
+    ),
+    
+    #- Remove error messages
+    tags$style(
+      type="text/css",
+      ".shiny-output-error { visibility: hidden; }",
+      ".shiny-output-error:before { visibility: hidden; }"
+    ),
+    
+    setShadow("box"),
+    
+    #- TABS
+    tabItems(
+      about,
+      find,
+      eda
+    )
+  )
 )
+  
+
+

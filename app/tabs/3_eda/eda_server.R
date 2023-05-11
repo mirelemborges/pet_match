@@ -13,10 +13,14 @@ cat_analysis <- reactive({
   
   
   
-  plot1 <- ggplot(chart_db, aes(x="", y=total, fill=get(input$selbar))) +
-    geom_bar(stat="identity", position = "dodge")+
-    scale_fill_discrete(name = input$selbar)+
-    xlab(input$selbar)
+  plot1 <- ggplotly(
+    ggplot(chart_db, aes(x="", y=total, fill=get(input$selbar))) +
+      geom_bar(stat="identity", position = "dodge")+
+      xlab(input$selbar) +
+      CSGo::theme_csgo() +
+      scale_fill_manual(values = c("#da6c41", "#222d32b8"),
+                        name = input$selbar)
+  )
   
   return(plot1)
   
@@ -27,10 +31,14 @@ cont_analysis <- reactive({
     collect()
 
   
-  plot2 <- ggplot(data = db, aes(x=get(input$selhist), fill=get(input$selbar))) +
-    geom_density(alpha=.3)+
-    scale_fill_discrete(name = input$selbar)+
-    xlab(input$selhist)
+  plot2 <- ggplotly(
+    ggplot(data = db, aes(x=get(input$selhist), fill=get(input$selbar))) +
+      geom_density(alpha=.3)+
+      xlab(input$selhist) +
+      CSGo::theme_csgo() +
+      scale_fill_manual(values = c("#da6c41", "#222d32b8"),
+                        name = input$selbar)
+  )
   
   return(plot2)
   
@@ -40,11 +48,15 @@ box_analysis <- reactive({
   db <- tbl(con, 'cleaned_adoption_list_table') %>% 
     collect()
 
-  plot3 <- ggplot(data = db, aes(x=get(input$selbar), y=get(input$selhist), fill=get(input$selbar))) + 
-    geom_boxplot()+
-    scale_fill_discrete(name = input$selbar)+
-    ylab(input$selhist)+
-    xlab(input$selbar)
+  plot3 <- ggplotly(
+    ggplot(data = db, aes(x=get(input$selbar), y=get(input$selhist), fill=get(input$selbar))) + 
+      geom_boxplot()+
+      ylab(input$selhist)+
+      xlab(input$selbar)+
+      CSGo::theme_csgo() +
+      scale_fill_manual(values = c("#da6c41", "#222d32b8"),
+                        name = input$selbar)
+  )
   
   return(plot3)
   
@@ -53,11 +65,11 @@ box_analysis <- reactive({
 
 #- OUTPUTS
 
-output$barchart <- renderPlot(cat_analysis())
+output$barchart <- renderPlotly(cat_analysis())
 
-output$histchart <- renderPlot(cont_analysis())
+output$histchart <- renderPlotly(cont_analysis())
 
-output$boxchart <- renderPlot(box_analysis())
+output$boxchart <- renderPlotly(box_analysis())
 
 
 

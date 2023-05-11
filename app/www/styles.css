@@ -17,7 +17,113 @@ body {
 }
 
 .simbol {
-  color: #ffe521 !important;
+  color: #da6c41 !important;
   text-align: center !important;
   font-weight: bold;
+}
+
+
+/* PAGE SETINGS */
+.skin-yellow .main-header .navbar {
+    background-color: #da6c41;
+}
+
+
+.skin-yellow .main-header .logo:hover {
+    background-color: #da6c41;
+    color: #222d32 !important;
+}
+
+.skin-yellow .main-header .logo {
+    background-color: #da6c41;
+    color: #222d32;
+    border-bottom: 0 solid transparent;
+}
+
+.skin-yellow .main-header .navbar .sidebar-toggle:hover {
+    background-color: #222d32;
+}
+
+.skin-yellow .sidebar-menu>li.active>a {
+    border-left-color: #da6c41;
+}
+
+.content-wrapper {
+    background-color: #ffffff!important;
+    border: 2px solid #222d32;
+}
+
+.form-control {
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #d2d6de;
+    text-align: center;
+}
+
+
+/* BOX */
+.box {
+    position: relative;
+    text-align: center;
+    border-radius: 3px;
+    background: #fff;
+    border-top: 3px solid #ffffff;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 0px 0px rgba(0,0,0,.1);
+}
+
+
+/*TABLE*/
+.table_img {
+    vertical-align: middle;
+    height: 70px;
+    border: 2px solid #232a30;
+}
+
+
+.table_img_all {
+  vertical-align: middle;
+  height: 45px;
+  margin-right: 20px;
+  border-radius: 50%;
+  border: 2px solid #232a30;
+}
+
+/*hichlight player in the table*/
+.player_tab_high {
+  font-weight: bold;
+  background-color: #232a3038;
+}
+
+
+/*button*/
+.btn-success {
+    background-color: #da6c41;
+    border-color: #222d32;
+    color: #222d32;
+}
+
+.btn-success:hover {
+    background-color:  #222d32!important;
+    border-color: #da6c41!important;
+    color: #da6c41!important;
+}
+
+.btn-success:active {
+    background-color: #da6c41!important;
+    border-color: #222d32!important;
+    color: #222d32!important;
+}
+
+.btn-success:focus {
+    background-color: #da6c41!important;
+    border-color: #222d32!important;
+    color: #222d32!important;
+}
+
+
+.fa-question .shinyhelper-icon {
+  margin-left: 20%;
+  padding-left: 10%;
 }
